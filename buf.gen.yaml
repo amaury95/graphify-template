@@ -1,0 +1,9 @@
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: graphify.template/domain
+plugins:
+  - plugin: graphify
+    out: domain
+    opt: paths=source_relative

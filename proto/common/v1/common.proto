@@ -1,0 +1,13 @@
+syntax = "proto3";
+package common.v1;
+
+enum Category {
+  CATEGORY_UNSPECIFIED = 0;
+  CATEGORY_DRAMA = 1;
+  CATEGORY_HORROR = 2;
+}
+
+message Character {
+  string name = 1;
+  string role = 2;
+}

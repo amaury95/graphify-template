@@ -1,0 +1,9 @@
+syntax = "proto3";
+package relation.v1;
+
+message Borrow {
+  string key = 1 [ json_name = "_key" ];
+  string from = 2 [ json_name = "_from" ];
+  string to = 3 [ json_name = "_to" ];
+  optional int64 date = 4;
+}

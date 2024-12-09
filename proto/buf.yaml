@@ -1,0 +1,10 @@
+version: v1
+name: buf.build/amaury/graphify-template
+# deps:
+#   -
+breaking:
+  use:
+    - FILE
+lint:
+  use:
+    - DEFAULT

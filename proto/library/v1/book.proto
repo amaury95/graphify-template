@@ -1,0 +1,70 @@
+syntax = "proto3";
+package library.v1;
+
+import "common/v1/common.proto";
+
+message Book {
+  message Novel {
+    string genre = 1;
+    int32 publication_year = 2;
+  }
+
+  message ShortStory {
+    int32 length_pages = 1;
+    optional bool is_collection = 2;
+  }
+
+  message Academic {
+    string subject = 1;
+    int32 edition = 2;
+  }
+
+  message Poetry {
+    string style = 1;
+    optional bool is_anthology = 2;
+  }
+
+  message Biography {
+    string subject_person = 1;
+    string notable_achievements = 2;
+  }
+
+  message Review {
+    string message = 1;
+    string user_name = 2 [ json_name = "name" ];
+  }
+
+  string key = 1 [ json_name = "_key" ];
+  string title = 2;
+  string author = 3;
+
+  oneof type {
+    Novel novel = 4;
+    ShortStory short_story = 5;
+    Academic academic = 6;
+    Poetry poetry = 7;
+    Biography biography = 8;
+  }
+
+  Review main_review = 9;
+  repeated Review reviews = 10;
+  repeated string tags = 11;
+  map<string, int32> book_price = 12;
+  map<int32, string> chapters = 13;
+  map<string, common.v1.Character> characters = 14;
+
+  bytes portrait = 15;
+  repeated bytes gallery = 16;
+  common.v1.Category category = 17;
+
+  oneof role {
+    bool admin = 18;
+    bool manager = 19;
+    bool client = 20;
+    string other = 21;
+  }
+}
+
+message ListBooksResponse { repeated Book books = 1; }
+
+message DeleteBookRequest { string key = 1; }

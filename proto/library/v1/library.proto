@@ -1,0 +1,12 @@
+syntax = "proto3";
+package library.v1;
+
+message Library {
+  message Location {
+    float lat = 1;
+    float lng = 2;
+  }
+  string key = 1 [ json_name = "_key" ];
+  string name = 2;
+  Location location = 3;
+}

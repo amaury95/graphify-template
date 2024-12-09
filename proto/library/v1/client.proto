@@ -1,0 +1,9 @@
+syntax = "proto3";
+package library.v1;
+
+message Client {
+  string key = 1 [ json_name = "_key" ];
+  string name = 2;
+  string email = 3;
+  optional bool member = 4;
+}
